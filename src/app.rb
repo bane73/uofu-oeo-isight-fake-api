@@ -2,6 +2,7 @@ require 'sinatra'
 require 'json'
 
 set :bind, '0.0.0.0'
+set :port, 4567  
 set :show_exceptions, :after_handler
 
 before do
