@@ -5,7 +5,15 @@ class Isight
     @partyTypes_staffNonCred = [ "Staff","Non-Credit"]
     @partyTypes_student = [ "Freshman"]
 
-    @oeoCourses = [
+    @oeoCourses_0 = [
+        {
+            :code => nil,
+            :title => nil,
+            :date => nil,
+            :attendance => nil
+        }
+      ]
+    @oeoCourses_2 = [
         {
             :code => "1234",
             :title => "An OEO Course",
@@ -51,7 +59,7 @@ class Isight
         :hireDate => "2007-08-09",
         :termDate => nil,
         :area => "UOU",
-        :oeoCourses => @oeoCourses
+        :oeoCourses => @oeoCourses_2
       }
     
     @person_js = {
@@ -84,8 +92,8 @@ class Isight
         :mgrId => nil,
         :hireDate => nil,
         :termDate => nil,
-        :area => nil,
-        :oeoCourses => nil
+        :area => 'Academic HSC',
+        :oeoCourses => @oeoCourses_0
       }
     
     @people = {
