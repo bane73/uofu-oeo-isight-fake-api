@@ -2,25 +2,26 @@ class Isight
   
   def initialize 
     
-    @partyTypes = [ "Staff","Non-Credit"]
+    @partyTypes_staffNonCred = [ "Staff","Non-Credit"]
+    @partyTypes_student = [ "Freshman"]
 
     @oeoCourses = [
         {
-            :code => "4567",
-            :title => "Another OEO Course",
+            :code => "1234",
+            :title => "An OEO Course",
             :date => "2000-01-02",
             :attendance => "Completed"
         },
         {
             :code => "4567",
             :title => "Another OEO Course",
-            :date => "2000-01-02",
+            :date => "2000-01-03",
             :attendance => "Completed"
         }
       ]
     
-    @person = {
-        :emplid => "12345678",  
+    @person_mj = {
+        :emplid => "01234567",  
         :partyTypes => @partyTypes,
         :nameFirst => "Michael",
         :nameFirstPref => "Michael",
@@ -53,13 +54,55 @@ class Isight
         :oeoCourses => @oeoCourses
       }
     
+    @person_js = {
+        :emplid => "01234566",  
+        :partyTypes => @partyTypes_student,
+        :nameFirst => "John",
+        :nameFirstPref => "John",
+        :nameMiddle => "",
+        :nameLast => "Smith",
+        :email => "John.Smith@gmail.com",
+        :phone => "801/555-1212",
+        :phoneCell => "801/555-1212",
+        :addr1 => "123 Main St.",
+        :addr2 => "",
+        :city => "Salt Lake City",
+        :state => "UT",
+        :country => "USA",
+        :zip => "84111",
+        :race => "HISPA",
+        :gender => "M",
+        :dob => "1992-01-02",
+        :classStanding => "Freshman",
+        :athlete => false,
+        :fratSorority => "",
+        :empRcd => nil,
+        :deptId => nil,
+        :deptDescr => nil,
+        :jobCode => nil,
+        :jobDescr => nil,
+        :mgrId => nil,
+        :hireDate => nil,
+        :termDate => nil,
+        :area => nil,
+        :oeoCourses => nil
+      }
+    
+    @people = {
+        "01234567" => @person_mj,
+        "01234566" => @person_js
+      }
+    
     puts "Initialized: Isight"
   end
   
   def getPerson_json(request)   
     emplid = getSanitizedEmplidFromRequest(request)  
-    @person[:emplid] = emplid
-    @person.to_json
+    person = @people[emplid]
+    if person.nil?
+      raise "Unknown emplid"
+    end
+    person.to_json
   end
   
   def getSanitizedEmplidFromRequest(request)
