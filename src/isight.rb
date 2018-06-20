@@ -3,7 +3,8 @@ class Isight
   def initialize 
     
     @partyTypes_staffNonCred = [ "Staff","Non-Credit"]
-    @partyTypes_student = [ "Freshman"]
+    @partyTypes_student = [ "Undergraduate"]
+    @partyTypes_studentStaff = [ "Staff", "Graduate"]
 
     @oeoCourses_0 = [
         {
@@ -27,40 +28,6 @@ class Isight
             :attendance => "Completed"
         }
       ]
-    
-    @person_mj = {
-        :emplid => "01234567",  
-        :partyTypes => @partyTypes,
-        :nameFirst => "Michael",
-        :nameFirstPref => "Michael",
-        :nameMiddle => "Jeffrey",
-        :nameLast => "Jordan",
-        :email => "Michael.Jordan@utah.edu",
-        :phone => "801/555-1212",
-        :phoneCell => "801/555-1212",
-        :addr1 => "123 Main St.",
-        :addr2 => "",
-        :city => "Salt Lake City",
-        :state => "UT",
-        :country => "USA",
-        :zip => "84111",
-        :race => "HISPA",
-        :gender => "M",
-        :dob => "1992-01-02",
-        :classStanding => "Freshman",
-        :athlete => false,
-        :fratSorority => "",
-        :empRcd => "0",
-        :deptId => "00411",
-        :deptDescr => "Sociology",
-        :jobCode => "1357",
-        :jobDescr => "Director",
-        :mgrId => "97292590",
-        :hireDate => "2007-08-09",
-        :termDate => nil,
-        :area => "UOU",
-        :oeoCourses => @oeoCourses_2
-      }
     
     @person_js = {
         :emplid => "01234566",  
@@ -92,13 +59,82 @@ class Isight
         :mgrId => nil,
         :hireDate => nil,
         :termDate => nil,
-        :area => 'Academic HSC',
+        :area => "Academic HSC",
+        :oeoCourses => @oeoCourses_0
+      }
+    
+    @person_mj = {
+        :emplid => "01234567",  
+        :partyTypes => @partyTypes_staffNonCred,
+        :nameFirst => "Michael",
+        :nameFirstPref => "Michael",
+        :nameMiddle => "Jeffrey",
+        :nameLast => "Jordan",
+        :email => "Michael.Jordan@utah.edu",
+        :phone => "801/555-1212",
+        :phoneCell => "801/555-1212",
+        :addr1 => "123 Main St.",
+        :addr2 => "",
+        :city => "Salt Lake City",
+        :state => "UT",
+        :country => "USA",
+        :zip => "84111",
+        :race => "HISPA",
+        :gender => "M",
+        :dob => "1992-01-02",
+        :classStanding => "Freshman",
+        :athlete => false,
+        :fratSorority => "",
+        :empRcd => "0",
+        :deptId => "00411",
+        :deptDescr => "Sociology",
+        :jobCode => "1357",
+        :jobDescr => "Director",
+        :mgrId => "97292590",
+        :hireDate => "2007-08-09",
+        :termDate => nil,
+        :area => "UOU",
+        :oeoCourses => @oeoCourses_2
+      }
+    
+    @person_jb = {
+        :emplid => "01234568",  
+        :partyTypes => @partyTypes_studentStaff,
+        :nameFirst => "Jason",
+        :nameFirstPref => "Jason",
+        :nameMiddle => "",
+        :nameLast => "Bourne",
+        :email => "jbourne@example.com",
+        :phone => "801/555-1234",
+        :phoneCell => "801/555-1234",
+        :addr1 => "123 Ultimatum St.",
+        :addr2 => "",
+        :city => "Salt Lake City",
+        :state => "UT",
+        :country => "USA",
+        :zip => "84112",
+        :race => "WHITE",
+        :gender => "M",
+        :dob => "1975-12-15",
+        :classStanding => "Masters",
+        :athlete => false,
+        :fratSorority => "",
+        :empRcd => "1",
+        :deptId => "01234",
+        :deptDescr => "Operations",
+        :jobCode => "1234",
+        :jobDescr => "Director",
+        :mgrId => "01234567",
+        :hireDate => "2018-06-20",
+        :termDate => nil,
+        :area => "UOU",
         :oeoCourses => @oeoCourses_0
       }
     
     @people = {
+        "01234566" => @person_js,
         "01234567" => @person_mj,
-        "01234566" => @person_js
+        "01234568" => @person_jb
       }
     
     puts "Initialized: Isight"
